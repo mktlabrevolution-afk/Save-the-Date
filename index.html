@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save the Date - Google Day Aceleración Digital</title>
+    <style>
+        /* Base & Reset */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #060913; /* Fondo general ultra oscuro para contraste crítico */
+            color: #E2E8F0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+
+        /* Contenedor Principal Neumorphic de Alto Contraste */
+        .card {
+            max-width: 680px;
+            width: 100%;
+            padding: 70px 40px 50px 40px;
+            background: #0F1526; /* Azul cobalto oscuro para resaltar del fondo */
+            border-radius: 28px;
+            /* Sombras optimizadas: Negro absoluto + Azul hielo de alta refracción */
+            box-shadow: 14px 14px 28px #04060b, 
+                        -14px -14px 28px #1a2441;
+            box-sizing: border-box;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Isologo R'Evolution - Esquina Superior Derecha */
+        .logo-top-right {
+            position: absolute;
+            top: 25px;
+            right: 40px;
+            height: 65px;
+            width: auto;
+            z-index: 2;
+        }
+
+        /* Títulos y Encabezado */
+        header h1 {
+            font-size: 42px;
+            font-weight: 800;
+            margin: 25px 0 10px 0;
+            letter-spacing: -1px;
+            background: linear-gradient(135deg, #FFFFFF 40%, #A2B6DF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 22px;
+            font-weight: 300;
+            color: #F1F5F9;
+            margin-bottom: 30px;
+        }
+
+        .subtitle strong {
+            font-weight: 600;
+            color: #00B65D;
+        }
+
+        .intro-text {
+            color: #94A3B8;
+            font-size: 16px;
+            line-height: 1.6;
+            max-width: 580px;
+            margin: 0 auto 40px auto;
+        }
+
+        /* Secciones Internas Hundidas de Alto Impacto (Inverted Neumorphism) */
+        .inner-section {
+            background: #0F1526; /* Mismo tono base para mantener consistencia de tallado */
+            border-radius: 16px;
+            /* Sombras internas intensificadas para notar la profundidad */
+            box-shadow: inset 8px 8px 16px #04060b, 
+                        inset -8px -8px 16px #1a2441;
+            padding: 25px 30px;
+            margin-bottom: 35px;
+            text-align: left;
+        }
+
+        /* Título de Sección con Efecto Glassmorphism Estático */
+        .section-title {
+            display: inline-block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #00B65D;
+            font-weight: 800;
+            margin-top: 0;
+            margin-bottom: 25px;
+            padding: 6px 14px;
+            background: rgba(0, 182, 93, 0.08);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 182, 93, 0.2);
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            border-left: 1px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Lista de Pilares / Ejes de Trabajo */
+        .pilar-item {
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .pilar-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .pilar-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #FFFFFF;
+            margin-bottom: 4px;
+        }
+
+        .pilar-desc {
+            font-size: 14px;
+            color: #94A3B8;
+        }
+
+        /* Estructura de Públicos */
+        .public-group {
+            margin-bottom: 15px;
+        }
+
+        .public-group:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Etiquetas de Público limpias (Blanco y Negrita) */
+        .public-label {
+            display: block;
+            font-size: 13px;
+            font-weight: 800;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 6px;
+            padding: 0;
+            background: none;
+            backdrop-filter: none;
+            -webkit-backdrop-filter: none;
+            border: none;
+            box-shadow: none;
+        }
+
+        .public-desc {
+            font-size: 14px;
+            color: #94A3B8;
+            line-height: 1.5;
+        }
+
+        .note-text {
+            font-size: 12px;
+            color: #64748B;
+            font-style: italic;
+            margin-top: 15px;
+            line-height: 1.4;
+        }
+
+        /* Bloque de Coordenadas Neumorphic con Relieve Definido */
+        .coordinates-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .coord-block {
+            flex: 1;
+            background: #0F1526;
+            border-radius: 14px;
+            padding: 20px 10px;
+            /* Sombras optimizadas individuales */
+            box-shadow: 6px 6px 14px #04060b, 
+                        -6px -6px 14px #1a2441;
+            text-align: center;
+        }
+
+        /* Etiquetas de Coordenadas con Efecto Glassmorphism */
+        .coord-label {
+            display: inline-block;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: #00B65D;
+            font-weight: 800;
+            margin-bottom: 10px;
+            padding: 3px 10px;
+            background: rgba(0, 182, 93, 0.08);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 6px;
+            border: 1px solid rgba(0, 182, 93, 0.18);
+            border-top: 1px solid rgba(255, 255, 255, 0.12);
+            border-left: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        .coord-value {
+            font-size: 14px;
+            font-weight: 600;
+            color: #FFFFFF;
+            line-height: 1.3;
+        }
+
+        /* Cierre / Llamado a la Acción */
+        .cta-box {
+            margin-bottom: 35px;
+        }
+
+        .highlight-text {
+            font-size: 16px;
+            font-weight: 700;
+            color: #FFFFFF;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+        .footer-disclaimer {
+            font-size: 13px;
+            color: #64748B;
+            margin: 0;
+        }
+
+        /* Footer */
+        footer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .google-icon {
+            height: 38px;
+            width: auto;
+            display: block;
+            filter: drop-shadow(4px 4px 6px rgba(0,0,0,0.5));
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <img src="/Users/jcoll/Documents/MKT LAB/REVOLUTION/NUEVA IDENTIDAD RE/SVG/RE blanco azul para fondo azul.svg" alt="R'Evolution Education Group" class="logo-top-right">
+
+        <header>
+            <h1>Save the Date</h1>
+            <div class="subtitle">Nos visita el equipo de <strong>Google</strong></div>
+        </header>
+
+        <p class="intro-text">
+            Los invitamos a participar de una jornada intensiva de aceleración digital junto al equipo experto de Google para explorar sobre:
+        </p>
+
+        <div class="inner-section">
+            <h2 class="section-title">Ejes Estratégicos</h2>
+            
+            <div class="pilar-item">
+                <div class="pilar-title">First-Hand Insights & Tendencias</div>
+                <div class="pilar-desc">2026: Qué está pasando hoy y qué viene mañana en el comportamiento de los usuarios.</div>
+            </div>
+
+            <div class="pilar-item">
+                <div class="pilar-title">Tech Upgrade: Actualizaciones</div>
+                <div class="pilar-desc">Tecnológicas críticas, IA aplicada y automatización para optimizar tu día a día.</div>
+            </div>
+
+            <div class="pilar-item">
+                <div class="pilar-title">Data-Driven Success</div>
+                <div class="pilar-desc">Indicadores de mercado actualizados y benchmarks para medir lo que realmente importa.</div>
+            </div>
+
+            <div class="pilar-item">
+                <div class="pilar-title">Eficacia Operativa</div>
+                <div class="pilar-desc">Buenas prácticas globales para transformar horas de trabajo manual en impacto directo en los resultados.</div>
+            </div>
+        </div>
+
+        <div class="inner-section">
+            <h2 class="section-title">Público Invitado</h2>
+            
+            <div class="public-group">
+                <div class="public-label">Core:</div>
+                <div class="public-desc">Equipos operativos de marketing de todas las instituciones del Grupo.</div>
+            </div>
+
+            <div class="public-group" style="margin-top: 15px;">
+                <div class="public-label">Ampliado:</div>
+                <div class="public-desc">Líderes de área, perfiles estratégicos y colaboradores de otros niveles jerárquicos que quieran conectar la visión macro con la ejecución táctica.</div>
+            </div>
+
+            <div class="note-text">
+                Nota: Luego de este workshop general, se coordinarán mesas de trabajo 1:1 más estratégicas con las direcciones de marketing.
+            </div>
+        </div>
+
+        <div class="coordinates-container">
+            <div class="coord-block">
+                <div class="coord-label">Cuándo</div>
+                <div class="coord-value">Miércoles<br>17 de junio</div>
+            </div>
+            <div class="coord-block">
+                <div class="coord-label">Horario</div>
+                <div class="coord-value">11 a 13 h<br><span style="font-size: 11px; font-weight:300; color:#94A3B8;">(Workshop Intensivo)</span></div>
+            </div>
+            <div class="coord-block">
+                <div class="coord-label">Dónde</div>
+                <div class="coord-value">Aula Magna 1 EDN,<br>Campus Siglo 21</div>
+            </div>
+        </div>
+
+        <div class="cta-box">
+            <div class="highlight-text">Bloqueá tu agenda. El futuro de nuestras campaigns se decide acá.</div>
+            <p class="footer-disclaimer">Próximamente compartiremos la agenda detallada y el formulario de confirmación.</p>
+        </div>
+
+        <footer>
+            <img src="file:///Users/jcoll/Desktop/google-icon-logo-svgrepo-com.svg" alt="Google G" class="google-icon">
+        </footer>
+    </div>
+
+</body>
+</html>
